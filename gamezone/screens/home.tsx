@@ -2,7 +2,7 @@ import { Button, StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 
 
-export default function Home({ navigation }) {
+export default function Home({ navigation }: any) {
     const pressHanlder = () => {
         navigation.navigate("SignUp");
     }
