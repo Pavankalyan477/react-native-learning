@@ -1,17 +1,19 @@
-import { FlatList, Image, StyleSheet, Text, View } from "react-native";
+import { FlatList, Image, Pressable, StyleSheet, Text, View } from "react-native";
 import products from "../data/products";
 import { useEffect, useState } from "react";
 
 
-export default function LandingPage() {
+export default function LandingPage( {navigation} : any) {
     return(
        
         <FlatList
             data={products}
             renderItem={({ item }) => {
-                return (<View style={styles.itemContainer}>
+                return (
+                <Pressable onPress={() => navigation.navigate("Product Details")} style={styles.itemContainer}>
                     <Image source={{uri: item.image}} style={styles.image}/>
-                </View>)
+                    <Text style={{alignSelf:"center"}}>{item.name}</Text>
+                </Pressable>)
             }}
             numColumns={2}
         />
