@@ -12,6 +12,7 @@ import {
   View,
 } from 'react-native';
 import LandingPage from './src/screens/LandingPage';
+import ProductDetails from './src/screens/productDetails';
 
 
 
@@ -19,8 +20,9 @@ function App(): JSX.Element {
   
   return (
     <View style = {styles.container}>
-      <LandingPage/>
-      <StatusBar />
+      {/* <LandingPage/> */}
+      <ProductDetails/>
+      <StatusBar barStyle= 'dark-content' />
     </View>
   );
 }
@@ -29,8 +31,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
     },
   });
 
