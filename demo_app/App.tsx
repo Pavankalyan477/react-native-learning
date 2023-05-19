@@ -12,6 +12,8 @@ import {
   View,
 } from 'react-native';
 import Navigation from './src/Navigation';
+import { Provider } from 'react-redux';
+import { store } from './src/store';
 
 
 
@@ -19,10 +21,12 @@ import Navigation from './src/Navigation';
 function App(): JSX.Element {
   
   return (
+    <Provider store={store}>
     <View style = {styles.container}>
       <Navigation/>
       <StatusBar barStyle= 'dark-content' />
     </View>
+    </Provider>
   );
 }
 
