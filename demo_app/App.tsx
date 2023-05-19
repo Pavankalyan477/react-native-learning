@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import LandingPage from './src/screens/LandingPage';
 import ProductDetails from './src/screens/productDetails';
+import ShoppingCart from './src/screens/ShopppingCart';
 
 
 
@@ -21,7 +22,8 @@ function App(): JSX.Element {
   return (
     <View style = {styles.container}>
       {/* <LandingPage/> */}
-      <ProductDetails/>
+      {/* <ProductDetails/> */}
+      <ShoppingCart/>
       <StatusBar barStyle= 'dark-content' />
     </View>
   );
