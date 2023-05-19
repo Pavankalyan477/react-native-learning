@@ -9,7 +9,7 @@ const items1: item[] = [];
 const initialState = {
     items: items1,
     deliveryFee: 20,
-    freeDeliveryFrom: 300
+    freeDeliveryFrom: 3000
 }
 
 export const cartSlice = createSlice({
