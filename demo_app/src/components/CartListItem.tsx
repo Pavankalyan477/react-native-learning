@@ -1,15 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Button } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useDispatch } from 'react-redux';
+import { cartSlice } from '../store/cartSlice';
 
 const CartListItem = ({ cartItem }: any) => {
+    const dispatch = useDispatch();
  
   const increaseQuantity = () => {
-
+    dispatch(cartSlice.actions.changeQunatity({productId: cartItem.product.id, amount:1}))
   };
 
   const decreaseQuantity = () => {
-
+     dispatch(cartSlice.actions.changeQunatity({productId: cartItem.product.id, amount: -1}))
   };
 
   return (
