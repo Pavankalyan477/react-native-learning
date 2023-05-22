@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ProductsSlice } from "../store/productsSlice";
 
 
-export default function LandingPage( {navigation} : any) {
+export default function Products( {navigation} : any) {
     const products = useSelector((state: any) => state.products.products);
     const dispatch = useDispatch();
     return(

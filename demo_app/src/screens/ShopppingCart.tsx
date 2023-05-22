@@ -12,22 +12,25 @@ const total = useSelector(selectTotal);
     <View style={styles.totalsContainer}>
       <View style={styles.row}>
         <Text style={styles.text}>Subtotal</Text>
-        <Text style={styles.text}>{subTotal}US$</Text>
+        <Text style={styles.text}>{subTotal}</Text>
       </View>
       <View style={styles.row}>
         <Text style={styles.text}>Delivery</Text>
-        <Text style={styles.text}>{deliveryFee} US$</Text>
+        <Text style={styles.text}>{deliveryFee} </Text>
       </View>
       <View style={styles.row}>
         <Text style={styles.textBold}>Total</Text>
-        <Text style={styles.textBold}>{total} US$</Text>
+        <Text style={styles.textBold}>{total} </Text>
       </View>
     </View>
   );
 };
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ navigation}: any) => {
     const cartItems = useSelector((state: any) => state.cart.items);
+    const checkout = () => {
+      navigation.navigate('Checkout');
+    }
     return(
         <>
         <FlatList
@@ -35,7 +38,7 @@ const ShoppingCart = () => {
         renderItem={({ item }) => <CartListItem cartItem={item} />}
         ListFooterComponent={ShoppingCartTotals}
       />
-        <Pressable  style={styles.button}>
+        <Pressable onPress={checkout}  style={styles.button}>
             <Text style={styles.buttonText}>Checkout</Text>
         </Pressable>
       </>

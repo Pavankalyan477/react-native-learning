@@ -26,17 +26,17 @@ const CartListItem = ({ cartItem }: any) => {
         <View style={styles.footer}>
           <Button
             onPress={decreaseQuantity}
-            title='minus'
+            title='-'
             color="gray"
           />
           <Text style={styles.quantity}>{cartItem.quantity}</Text>
           <Button
             onPress={increaseQuantity}
-            title="plus"
+            title="+"
             color="gray"
           />
           <Text style={styles.itemTotal}>
-            $ {cartItem.product.price * cartItem.quantity}
+            Rs. {cartItem.product.price * cartItem.quantity}
           </Text>
         </View>
       </View>

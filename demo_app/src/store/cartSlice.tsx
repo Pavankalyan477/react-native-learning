@@ -8,8 +8,8 @@ const items1: item[] = [];
 
 const initialState = {
     items: items1,
-    deliveryFee: 20,
-    freeDeliveryFrom: 3000
+    deliveryFee: 50,
+    freeDeliveryFrom: 1000
 }
 
 export const cartSlice = createSlice({
@@ -36,6 +36,9 @@ export const cartSlice = createSlice({
                     state.items = state.items.filter((item) => item !== cartItem);
                 }
             }
+        },
+        clearCartItems: (state, action) => {
+            state.items = action.payload;
         }
     }
 })

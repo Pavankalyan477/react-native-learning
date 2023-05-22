@@ -1,12 +1,13 @@
 import { NavigationContainer } from "@react-navigation/native"
-import LandingPage from "./screens/LandingPage"
+import Products from "./screens/products"
 import ProductDetails from "./screens/productDetails"
 import ShoppingCart from "./screens/ShopppingCart"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { Pressable, Text } from "react-native"
 import { useSelector } from "react-redux"
-import { cartSlice, selectNumberOfItems } from "./store/cartSlice"
-// import {FontAwesome5} from "react-native-vector-icons"
+import {  selectNumberOfItems } from "./store/cartSlice"
+import Checkout from "./screens/checkout"
+
 
 const Stack = createNativeStackNavigator();
 
@@ -14,15 +15,15 @@ const Navigation = () => {
      const numberOfItems = useSelector(selectNumberOfItems);
     return(
         <NavigationContainer>
-            <Stack.Navigator 
-            screenOptions={{contentStyle:{backgroundColor: 'white'}}}>
+            <Stack.Navigator >
                 <Stack.Screen 
                 name="Products" 
-                component={LandingPage}
+                component={Products}
                 options= {({ navigation }) => ({
                     headerRight: () => (
                     <Pressable onPress={() => navigation.navigate('Cart')} style={{flexDirection: 'row'}}>
-                        <Text>Cart</Text>
+                        <Text>Cart
+                        </Text>
                         <Text style={{ marginLeft: 5, fontWeight: '500' }}>{numberOfItems}</Text>
                     </Pressable>
                     )
@@ -31,9 +32,18 @@ const Navigation = () => {
                 <Stack.Screen 
                     name="Product Details"
                     component={ProductDetails}
-                    options={{ presentation: 'modal' }}
+                    options= {({ navigation }) => ({
+                    headerRight: () => (
+                    <Pressable onPress={() => navigation.navigate('Cart')} style={{flexDirection: 'row'}}>
+                        <Text>Cart</Text>
+                        <Text style={{ marginLeft: 5, fontWeight: '500' }}>{numberOfItems}</Text>
+                    </Pressable>
+                    ),
+                    presentation: 'modal'
+                })}
                 />
                 <Stack.Screen name="Cart" component={ShoppingCart}/>
+                <Stack.Screen name="Checkout" component={Checkout}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
