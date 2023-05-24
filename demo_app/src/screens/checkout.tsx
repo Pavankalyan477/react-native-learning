@@ -16,7 +16,6 @@ const checkoutCart = (cartItem : any) => {
                 <Text>Qunatity: {cartItem.quantity}</Text>
                 <Text>Price: {cartItem.quantity * cartItem.product.price} /-</Text>
             </View>
-            
         </View>
         </View>
     )
